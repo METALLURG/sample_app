@@ -63,16 +63,27 @@ describe User do
   end
 
 # Проверка повторной регистрации под одним почтовым адресом
-describe "when email address is already taken" do
+  describe "when email address is already taken" do
     before do
       # Создание дубликата почтового адреса для тестирования
       user_with_same_email = @user.dup
-      # Выравнивание регистра почтового адреса
+      # Перевод  почтового адреса в нижний регистр
       user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
     end
 
     it { should_not be_valid }
+  end
+
+# Проверка теста, отвечающего за перевод почтового адреса в нижний регистр
+  describe "email address with mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      @user.email = mixed_case_email
+      @user.save
+      expect(@user.reload.email).to eq mixed_case_email.downcase
+    end
   end
 ###############################################################################
 # Проверка наличия пароля
