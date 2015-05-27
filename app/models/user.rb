@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
 # Перевод в нижний регистр email перед сохранением в базу
   before_save { self.email = email.downcase }
+# Обратный вызов before_create для создания remember_token
+  before_create :create_remember_token
 
 # Проверка превышения допустимой длинны имени пользователя
   validates :name,      presence:         true, 
@@ -18,4 +20,20 @@ class User < ActiveRecord::Base
 
 # Проверка превышения допустимой длинны пароля пользователя
   validates :password,  length:         { minimum: 6 }
+
+# Обратный вызов before_create для создания remember_token
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
 end
