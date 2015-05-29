@@ -37,6 +37,11 @@ describe "Authentication" do
         fill_in "Password", with: user.password
         click_button "Sign in"
       end
+      # Тест выхода пользователя
+      describe "followed by signout" do
+        before { click_link "Sign out" }
+        it { should have_link('Sign in') }
+      end
 
       # Проверка ссылок на странице после входа
       it { should have_title(user.name) }

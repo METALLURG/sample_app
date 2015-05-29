@@ -12,8 +12,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # Вход пользователя сразу после регистрации
     if @user.save
-      flash[:success] = "Добро пожаловать!"
+      sign_in @user
+      flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
       render 'new'
