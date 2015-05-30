@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Ваш профиль обновлён"
       redirect_to @user
     else
       render 'edit'
@@ -51,7 +51,14 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit( :name, 
+      params.require(:user).permit( :surname,
+                                    :patronymic,
+                                    :country,
+                                    :region,
+                                    :city,
+                                    :mobtel,
+                                    :skype,
+                                    :vk,
                                     :email, 
                                     :password,
                                     :password_confirmation)

@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530140932) do
+ActiveRecord::Schema.define(version: 20150530163016) do
+
+  create_table "action_members", force: true do |t|
+    t.string "id_action"
+    t.string "id_user"
+    t.string "date_prepay"
+    t.string "prepay"
+  end
+
+  create_table "actions", force: true do |t|
+    t.string "name"
+    t.string "description"
+    t.string "city"
+    t.string "name_master"
+    t.string "date_start"
+    t.string "date_finish"
+    t.string "prepay"
+  end
+
+  add_index "actions", ["city"], name: "index_actions_on_city"
+  add_index "actions", ["name"], name: "index_actions_on_name"
+  add_index "actions", ["name_master"], name: "index_actions_on_name_master"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -21,6 +42,17 @@ ActiveRecord::Schema.define(version: 20150530140932) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.string   "surname"
+    t.string   "patronymic"
+    t.string   "gender"
+    t.string   "birthday"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "mobtel"
+    t.string   "skype"
+    t.string   "vk"
+    t.string   "comment"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
