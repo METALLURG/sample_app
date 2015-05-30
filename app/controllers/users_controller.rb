@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     # Вход пользователя сразу после регистрации
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Добро пожаловать!"
       redirect_to @user
     else
       render 'new'

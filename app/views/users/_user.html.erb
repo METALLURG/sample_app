@@ -1,6 +1,8 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
-  ФИО:    <%= link_to user.name, user %>
+  <%= gravatar_for user, size: 55 %>
+  ФИО:    <%= link_to user.surname, user %>
+          <%= link_to user.name, user %>
+          <%= link_to user.patronymic, user %>
   <br>
   E-mail: <%= link_to user.email, user %>
   <br>
