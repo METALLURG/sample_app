@@ -1,0 +1,12 @@
+<li>
+  <%= gravatar_for user, size: 50 %>
+  ФИО:    <%= link_to user.name, user %>
+  <br>
+  E-mail: <%= link_to user.email, user %>
+  <br>
+  ID user: <%= link_to user.id, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "Удалить пользователя", user, method: :delete,
+                                  data: { confirm: "Вы уверены?" } %>
+  <% end %>
+</li>
