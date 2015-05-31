@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
 
   # Добавление ресурса для получения стандартных RESTful действий
-  resources :users
+  resources :users, except: :index
   resources :sessions, only: [:new, :create, :destroy]
 
   root                  'static_pages#home'
@@ -22,6 +22,7 @@ SampleApp::Application.routes.draw do
     root 'events#index'
     resources :events
     resources :event_templates
+    resources :users, except: :show
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,14 @@
 ru:
   activerecord:
     attributes: &activerecord_attributes
+      user:
+        email: E-mail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        name: Имя
+        surname: Фамилия
+        patronymic: Отчество
+        gender: Пол
       event:
         user: Преподаватель
         event_template: Шаблон

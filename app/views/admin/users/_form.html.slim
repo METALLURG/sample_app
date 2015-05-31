@@ -1,0 +1,34 @@
+.clearfix
+  h4 #{@user.persisted? ? t('shared.edit') : t('shared.create')} пользователя
+
+section class="panel pos-rlt clearfix"
+  header.panel-heading Информация
+  .panel-body.clearfix
+    = simple_form_for [:admin, @user], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+      = f.input :admin, wrapper: :horizontal_radio_and_checkboxes
+      = f.input :email
+      = f.input :name
+      = f.input :surname
+      = f.input :patronymic
+      = f.input :gender
+      - if @user.new_record?
+        = f.input :password
+        = f.input :password_confirmation
+
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          => f.button :submit, @user.new_record? ? t('shared.create') : t('shared.save'), class: 'btn-primary'
+          => link_to t('shared.back'), admin_users_path, class: 'btn btn-default'
+
+- if @user.persisted?
+  .row
+    .col-lg-6
+      section class="panel pos-rlt clearfix"
+        header.panel-heading Смена пароля
+        .panel-body.clearfix
+          = simple_form_for [:admin, @user], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+            = f.input :password
+            = f.input :password_confirmation
+            .form-group
+              .col-lg-9.col-lg-offset-3
+                => f.button :submit, t('shared.change')
