@@ -1,0 +1,30 @@
+
+section#content
+  section.main.padder
+    .clearfix
+      h4
+        i.icon-certificate
+        |  Шаблоны
+    .row
+      section.panel
+        .panel-body
+          => link_to t('shared.add'), new_admin_event_template_path, class: 'btn btn-primary btn-sm'
+        .table-responsive
+          table.table.table-striped.b-t.text-small
+            thead
+              tr
+                th Название
+                th Управление
+            tbody
+              - @event_templates.each do |event_template|
+                tr
+                  td= event_template.name
+                  td
+                    = link_to edit_admin_event_template_path(event_template) do
+                      i.icon-pencil
+                      =t 'shared.edit'
+
+                    = link_to admin_event_template_path(event_template), method: :delete, data: { confirm: t('shared.are_you_sure') } do
+                      i.icon-trash
+                      =t 'shared.destroy'
+        footer.panel-footer

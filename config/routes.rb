@@ -21,6 +21,7 @@ SampleApp::Application.routes.draw do
   namespace :admin do
     root 'events#index'
     resources :events
+    resources :event_templates
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
