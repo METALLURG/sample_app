@@ -46,7 +46,7 @@ module SessionsHelper
       sign_in user
       redirect_back_or user
     else
-      flash.now[:error] = 'Не верный ввод Электронной почты или Пароля'
+      flash.now[:error] = 'Введены не верные данные для авторизации'
       render 'new'
     end
   end

@@ -15,7 +15,7 @@ describe "User pages" do
     end
 
     it { should have_title('All users') }
-    it { should have_content('All users') }
+    it { should have_content('Таблица всех пользователей') }
 
     # Тесты для пагинации
     describe "pagination" do
@@ -35,7 +35,7 @@ describe "User pages" do
     # Тесты для удаляющих ссылок
     describe "delete links" do
 
-      it { should_not have_link('delete') }
+      it { should_not have_link('Удалить') }
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
