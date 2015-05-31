@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ImmaculatePine/first_admin_panel.git
-  revision: da61fcf1eef5cd0373e1ed6c618d915ed72e79db
+  revision: 4a764b88afffa2c7ab7a970c42289207072e152b
   specs:
     first_admin_panel (0.0.1)
       coffee-rails (> 4.0.0)
@@ -203,3 +203,6 @@ DEPENDENCIES
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)
+
+BUNDLED WITH
+   1.10.2
