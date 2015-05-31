@@ -1,1 +1,20 @@
-<%= @event.name %>
+<h1>
+              <%= @event.name %>
+</h1>
+
+<h2>
+              <%= @event.city %>
+</h2>
+
+<h2>
+  Начало:     <%= @event.started_at %>
+  <br>
+  Окончание:  <%= @event.finished_at %>
+</h2>
+<h3>
+  Предоплата: <%= @event.prepay_price %>
+</h3>
+
+<h3>
+              <%= @event.content %>
+</h3>
