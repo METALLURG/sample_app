@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    attributes: &activerecord_attributes
+      event:
+        user: Ведущий
+        name: Название
+        city: Город
+        started_at: Начало
+        finished_at: Конец
+        prepay_price: Минимальная предоплата
+        content: Контент
+
+  shared:
+    open: Открыть
+    create: Создать
+    edit: Редактировать
+    save: Сохранить
+    destroy: Удалить
+    back: Назад
+    are_you_sure: Вы уверены?
+    created: Изменения сохранены
+    saved: Изменения сохранены
+    not_saved: Изменения не были сохранены
+    destroyed: Запись удалена
+    not_destroyed: Не удалось удалить запись
+    add: Добавить
+    remove: Удалить
+    close: Закрыть
+    change: Изменить

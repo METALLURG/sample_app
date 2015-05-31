@@ -1,0 +1,18 @@
+.clearfix
+  h4 #{@event.persisted? ? t('shared.edit') : t('shared.create')} мероприятие
+
+section class="panel pos-rlt clearfix"
+  header.panel-heading Информация
+  .panel-body.clearfix
+    = simple_form_for [:admin, @event], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+      = f.input :name
+      = f.input :city
+      = f.input :started_at
+      = f.input :finished_at
+      = f.input :prepay_price
+      = f.input :content
+
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          => f.button :submit, @event.new_record? ? t('shared.create') : t('shared.save'), class: 'btn-primary'
+          => link_to t('shared.back'), admin_events_path, class: 'btn btn-default'

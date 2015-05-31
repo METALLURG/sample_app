@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530203753) do
+ActiveRecord::Schema.define(version: 20150531114756) do
 
   create_table "action_members", force: true do |t|
     t.string "id_action"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20150530203753) do
   add_index "actions", ["city"], name: "index_actions_on_city"
   add_index "actions", ["name"], name: "index_actions_on_name"
   add_index "actions", ["name_master"], name: "index_actions_on_name_master"
+
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "city"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.decimal  "prepay_price"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

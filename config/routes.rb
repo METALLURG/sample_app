@@ -16,6 +16,13 @@ SampleApp::Application.routes.draw do
 
   match '/signup',  to: 'users#new',            via: 'get'
 
+  resources :events, only: [:index, :show]
+
+  namespace :admin do
+    root 'events#index'
+    resources :events
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

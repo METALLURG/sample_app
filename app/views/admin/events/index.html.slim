@@ -1,0 +1,42 @@
+section#content
+  section.main.padder
+    .clearfix
+      h4
+        i.icon-certificate
+        |  Мероприятия
+    .row
+      section.panel
+        .panel-body
+          => link_to t('shared.add'), new_admin_event_path, class: 'btn btn-primary btn-sm'
+        .table-responsive
+          table.table.table-striped.b-t.text-small
+            thead
+              tr
+                th Ведущий
+                th Название
+                th Город
+                th Начало
+                th Конец
+                th
+            tbody
+              - @events.each do |event|
+                tr
+                  td= event.user.name
+                  td= event.name
+                  td= event.city
+                  td=l event.started_at, format: :long
+                  td=l event.finished_at, format: :long
+                  td
+                    .btn-group
+                      a.dropdown-toggle data-toggle="dropdown" href="#"
+                        i.icon-cog
+                      ul.dropdown-menu.pull-right
+                        li
+                          = link_to edit_admin_event_path(event) do
+                            i.icon-pencil
+                            =t 'shared.edit'
+                        li
+                          = link_to admin_event_path(event), method: :delete, data: { confirm: t('shared.are_you_sure') } do
+                            i.icon-trash
+                            =t 'shared.destroy'
+        footer.panel-footer

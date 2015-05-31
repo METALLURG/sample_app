@@ -3,11 +3,17 @@ ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 #
 gem 'rails', '4.0.2'
+gem 'slim'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'                    # Фейковые пользователи
 gem 'will_paginate', '3.0.4'            # Разбиение большого списка -> 
 gem 'bootstrap-will_paginate', '0.0.9'  ##  на несколько страниц
+gem 'russian'
+
+# Admin panel
+gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
