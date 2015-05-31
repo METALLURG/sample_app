@@ -1,4 +1,32 @@
+<h1>
+  Ближайшие мероприятия
+</h1>
+
 <% @events.each do |event| %>
-  <%= link_to event.name, event_path(event) %>
-  <br>
+
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Название мероприятия</th>
+            <th>Город проведения</th>
+            <th>Начало мероприятия</th>
+            <th>Окончание мероприятия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= link_to event.name, event_path(event) %></td>
+            <td><%= link_to event.city, event_path(event) %></td>
+            <td><%= link_to event.started_at, event_path(event) %></td>
+            <td><%= link_to event.finished_at, event_path(event) %></td>
+          </tr>
+        </tbody>
+  </table>
+
 <% end %>
+
+<h1>
+  Объединить вывод мероприятий в одну таблицу
+  <br>
+  Упорядочить мероприятия по дате (будущие ниже)
+</h1>

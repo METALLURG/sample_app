@@ -2,11 +2,11 @@ ru:
   activerecord:
     attributes: &activerecord_attributes
       event:
-        user: Ведущий
-        name: Название
+        user: Преподаватель
+        name: Название мероприятия
         city: Город
-        started_at: Начало
-        finished_at: Конец
+        started_at: Начало мероприятия
+        finished_at: Окончание мероприятия
         prepay_price: Минимальная предоплата
         content: Контент
 

@@ -3,6 +3,11 @@ li class=('active' if params[:controller] == 'admin/events')
     i.icon-certificate.icon-xlarge
     span Мероприятия
 
+li class=('active' if params[:controller] == 'admin/events')
+  = link_to admin_events_path do
+    i.icon-certificate.icon-xlarge
+    span Шаблоны
+
 li class=('active' if params[:controller] == 'admin/users')
   = link_to admin_events_path do
     i.icon-certificate.icon-xlarge

@@ -1,3 +1,4 @@
+
 section#content
   section.main.padder
     .clearfix
@@ -27,16 +28,11 @@ section#content
                   td=l event.started_at, format: :long
                   td=l event.finished_at, format: :long
                   td
-                    .btn-group
-                      a.dropdown-toggle data-toggle="dropdown" href="#"
-                        i.icon-cog
-                      ul.dropdown-menu.pull-right
-                        li
-                          = link_to edit_admin_event_path(event) do
-                            i.icon-pencil
-                            =t 'shared.edit'
-                        li
-                          = link_to admin_event_path(event), method: :delete, data: { confirm: t('shared.are_you_sure') } do
-                            i.icon-trash
-                            =t 'shared.destroy'
+                    = link_to edit_admin_event_path(event) do
+                      i.icon-pencil
+                      =t 'shared.edit'
+
+                    = link_to admin_event_path(event), method: :delete, data: { confirm: t('shared.are_you_sure') } do
+                      i.icon-trash
+                      =t 'shared.destroy'
         footer.panel-footer

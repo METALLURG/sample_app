@@ -2,19 +2,35 @@
               <%= @event.name %>
 </h1>
 
-<h2>
-              <%= @event.city %>
-</h2>
-
-<h2>
-  Начало:     <%= @event.started_at %>
-  <br>
-  Окончание:  <%= @event.finished_at %>
-</h2>
-<h3>
-  Предоплата: <%= @event.prepay_price %>
-</h3>
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Название мероприятия</th>
+          <th>Город проведения</th>
+          <th>Начало мероприятия</th>
+          <th>Окончание мероприятия</th>
+          <th>Предоплата</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= @event.name %> </td>
+          <td> <%= @event.city %> </td>
+          <td> <%= @event.started_at %> </td>
+          <td> <%= @event.finished_at %> </td>
+          <td> <%= @event.prepay_price %> </td>
+        </tr>
+      </tbody>
+</table>
 
 <h3>
               <%= @event.content %>
 </h3>
+
+<hr>
+
+<h1>
+              ТАБЛИЦА УСЛОВИЙ ОПЛАТЫ
+              <br>
+              Кнопка стать участником мероприятия
+</h1>
