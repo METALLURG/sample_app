@@ -5,10 +5,14 @@ ru:
         email: E-mail
         password: Пароль
         password_confirmation: Подтверждение пароля
-        name: Имя
         surname: Фамилия
+        name: Имя
         patronymic: Отчество
         gender: Пол
+        mobtel: Телефон
+        city: Город
+        skype: Skype
+        vk: ВКонтакте
       event:
         user: Преподаватель
         event_template: Шаблон
@@ -16,7 +20,7 @@ ru:
         city: Город
         started_at: Начало мероприятия
         finished_at: Окончание мероприятия
-        prepay_price: Минимальная предоплата
+        prepay_price: Предоплата
         content: Контент
       event_template:
         name: Название мероприятия

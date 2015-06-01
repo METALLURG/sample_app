@@ -6,11 +6,14 @@ section class="panel pos-rlt clearfix"
   .panel-body.clearfix
     = simple_form_for [:admin, @user], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
       = f.input :admin, wrapper: :horizontal_radio_and_checkboxes
-      = f.input :email
       = f.input :name
       = f.input :surname
       = f.input :patronymic
-      = f.input :gender
+      = f.input :email
+      = f.input :mobtel
+      = f.input :city
+      = f.input :skype
+      = f.input :vk
       - if @user.new_record?
         = f.input :password
         = f.input :password_confirmation

@@ -5,7 +5,14 @@ section#content
         i.icon-user
         |  Пользователи
     .row
-      .col-lg-3
+      .col-lg-12
+
+        <ul class="nav nav-tabs nav-justified">
+          <li role="presentation" class="active"><a href="#">Хочу</a></li>
+          <li role="presentation"><a href="#">Такую</a></li>
+          <li role="presentation"><a href="#">Переключалку</a></li>
+        </ul>
+
         .list-group.m-b-small
           = link_to admin_users_path(admin: true), class: "list-group-item#{' bg-lighter' if params[:admin].to_s == 'true'}" do
             i.icon-chevron-right
@@ -19,7 +26,8 @@ section#content
             i.icon-chevron-right
             i.icon-group
             | Все
-      .col-lg-9
+    .row
+      .col-lg-12
         section.panel
           header.panel-heading
             | Найдено <b>#{@users.total_count}</b> #{Russian.p(@users.total_count, 'пользователь', 'пользователя', 'пользователей')}
@@ -30,14 +38,26 @@ section#content
             table.table.table-striped.b-t.text-small
               thead
                 tr
-                  th Email
+                  th Фамилия
                   th Имя
+                  th Отчество
+                  th E-mail
+                  th Телефон
+                  th Город
+                  th Skype
+                  th VK
                   th
               tbody
                 - @users.each do |user|
                   tr
-                    td= user.email
+                    td= user.surname
                     td= user.name
+                    td= user.patronymic
+                    td= user.email
+                    td= user.mobtel
+                    td= user.city
+                    td= user.skype
+                    td= user.vk
                     td
                       .btn-group
                         a.dropdown-toggle data-toggle="dropdown" href="#"
