@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'                    # Фейковые пользователи
 gem 'russian'
 gem 'cancancan'
+gem 'mail'
 
 # Admin panel
 gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'

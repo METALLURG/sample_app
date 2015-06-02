@@ -14,15 +14,24 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # POST /users
+  # POST /users.json
   def create
     @user = User.new(user_params)
     # Вход пользователя сразу после регистрации
     if @user.save
+
+      # Сказать UserMailer отослать приветственное письмо после сохранения
+      UserMailer.registration_confirmation(@user).deliver
+
       sign_in @user
       flash[:success] = "Добро пожаловать!"
       redirect_to @user
     else
       render 'new'
+#        format.html { render action: 'new' }
+#        format.json { render json: @user.errors, status: :unprocessable_entity }
+
     end
   end
 
