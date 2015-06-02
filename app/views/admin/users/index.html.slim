@@ -7,27 +7,14 @@ section#content
     .row
       .col-lg-12
 
-        <ul class="nav nav-tabs nav-justified">
-          <li role="presentation" class="active"><a href="#">Хочу</a></li>
-          <li role="presentation"><a href="#">Такую</a></li>
-          <li role="presentation"><a href="#">Переключалку</a></li>
-        </ul>
+        ul class="nav nav-tabs nav-justified"
+          li role="presentation" class=("active" unless params[:admin].present?)
+            = link_to 'Все', admin_users_path
+          li role="presentation" class=("active" if params[:admin].to_s == 'false')
+            = link_to 'Пользователи', admin_users_path(admin: false)
+          li role="presentation" class=("active" if params[:admin].to_s == 'true')
+            = link_to 'Администраторы', admin_users_path(admin: true)
 
-        .list-group.m-b-small
-          = link_to admin_users_path(admin: true), class: "list-group-item#{' bg-lighter' if params[:admin].to_s == 'true'}" do
-            i.icon-chevron-right
-            i.icon-star
-            | Администраторы
-          = link_to admin_users_path(admin: false), class: "list-group-item#{' bg-lighter' if params[:admin].to_s == 'false'}" do
-            i.icon-chevron-right
-            i.icon-user
-            | Пользователи
-          = link_to admin_users_path, class: "list-group-item#{' bg-lighter' unless params[:admin].present?}" do
-            i.icon-chevron-right
-            i.icon-group
-            | Все
-    .row
-      .col-lg-12
         section.panel
           header.panel-heading
             | Найдено <b>#{@users.total_count}</b> #{Russian.p(@users.total_count, 'пользователь', 'пользователя', 'пользователей')}
