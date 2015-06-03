@@ -6,12 +6,11 @@ section class="panel pos-rlt clearfix"
   .panel-body.clearfix
     = simple_form_for [:admin, @event], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
       = f.association :user, collection: User.where(admin: true), include_blank: false
-      = f.association :event_template, collection: EventTemplate.order(name: :asc), include_blank: false
+      = f.association :event_template, include_blank: false
       = f.input :city
       = f.input :started_at
       = f.input :finished_at
       = f.input :prepay_price
-      = f.input :content
 
       .form-group
         .col-lg-9.col-lg-offset-3

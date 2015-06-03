@@ -6,7 +6,7 @@ section class="panel pos-rlt clearfix"
   .panel-body.clearfix
     = simple_form_for [:admin, @event_template], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
       = f.input :name
-      
+      = f.input :content
 
       .form-group
         .col-lg-9.col-lg-offset-3
