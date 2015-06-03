@@ -13,8 +13,9 @@ class Event < ActiveRecord::Base
 
   before_validation :set_default_values
 
+  delegate :name, :content, to: :event_template
+
   def set_default_values
     self.user ||= User.where(admin: true).first
-    self.name = event_template.name
   end
 end

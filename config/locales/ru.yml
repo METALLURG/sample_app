@@ -16,14 +16,13 @@ ru:
       event:
         user: Преподаватель
         event_template: Шаблон
-        name: Название мероприятия
         city: Город
         started_at: Начало мероприятия
         finished_at: Окончание мероприятия
         prepay_price: Предоплата
-        content: Контент
       event_template:
         name: Название мероприятия
+        content: Контент
 
   shared:
     open: Открыть
