@@ -29,8 +29,27 @@
 
 <hr>
 
+<h2>Стоимость участия в мероприятии</h2>
+
+<table class="table">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Цена, руб.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.prices.order(valid_till: :asc).each do |price| %>
+          <tr>
+            <td>до <%=l price.valid_till, format: :long %> </td>
+            <td> <%= price.price %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+</table>
+
+
+
 <h1>
-              ТАБЛИЦА УСЛОВИЙ ОПЛАТЫ
-              <br />
-              Кнопка стать участником мероприятия
+  Кнопка стать участником мероприятия
 </h1>

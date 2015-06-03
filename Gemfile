@@ -13,6 +13,7 @@ gem 'cancancan'
 # Admin panel
 gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'
 gem 'simple_form'
+gem 'nested_form'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 

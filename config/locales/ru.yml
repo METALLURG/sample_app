@@ -23,6 +23,9 @@ ru:
       event_template:
         name: Название мероприятия
         content: Контент
+      price:
+        price: Цена
+        valid_till: Действует до
 
   shared:
     open: Открыть
