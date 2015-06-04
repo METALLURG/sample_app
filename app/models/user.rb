@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  has_many :registrations, dependent: :destroy
+  has_many :events, through: :registrations
+
 # Перевод в нижний регистр email перед сохранением в базу
   before_save { self.email = email.downcase }
 # Обратный вызов before_create для создания remember_token
@@ -28,6 +31,18 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  # @return [String] полное имя пользователя
+  def full_name
+    [name, surname].select(&:present?).join(' ')
+  end
+
+  # Сообщает, зарегистрирован ли пользователь на событие
+  # @param event [Event] событие
+  # @return [Boolean] true, если подписан. false, если нет
+  def registered_to?(event)
+    event_ids.map(&:to_s).include?(event.id.to_s)
   end
 
   private

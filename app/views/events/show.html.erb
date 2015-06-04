@@ -23,9 +23,7 @@
       </tbody>
 </table>
 
-<h3>
-              <%= @event.content.html_safe %>
-</h3>
+<%= @event.content.to_s.html_safe %>
 
 <hr>
 
@@ -48,8 +46,10 @@
       </tbody>
 </table>
 
-
-
-<h1>
-  Кнопка стать участником мероприятия
-</h1>
+<% if (current_user && !current_user.registered_to?(@event)) || !current_user %>
+  <div class="text-center">
+    <%= form_for [@event, @event.registrations.new] do |f| %>
+      <%= f.submit 'Стать участником мероприятия', class: 'btn btn-success btn-large' %>
+    <% end %>
+  </div>
+<% end %>

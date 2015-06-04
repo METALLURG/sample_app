@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   has_many :prices, dependent: :destroy, inverse_of: :event
   accepts_nested_attributes_for :prices, allow_destroy: true
 
+  has_many :registrations, dependent: :restrict_with_error
+
   validates :user, presence: true
   validates :event_template, presence: true
   validates :name, presence: true

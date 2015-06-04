@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603173507) do
+ActiveRecord::Schema.define(version: 20150604210613) do
 
   create_table "action_members", force: true do |t|
     t.string "id_action"
@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(version: 20150603173507) do
 
   add_index "prices", ["event_id", "valid_till"], name: "index_prices_on_event_id_and_valid_till", unique: true
   add_index "prices", ["event_id"], name: "index_prices_on_event_id"
+
+  create_table "registrations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.string   "workflow_state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "registrations", ["event_id"], name: "index_registrations_on_event_id"
+  add_index "registrations", ["user_id", "event_id"], name: "index_registrations_on_user_id_and_event_id", unique: true
+  add_index "registrations", ["user_id"], name: "index_registrations_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

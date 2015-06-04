@@ -1,0 +1,22 @@
+section#content
+  section.main.padder
+    .clearfix
+      h4
+        i.icon-group
+        |  Участники мероприятия "#{@event.name}"
+    .row
+      section.panel
+        .table-responsive
+          table.table.table-striped.b-t.text-small
+            thead
+              tr
+                th Имя
+                th Дата регистрации
+                th
+            tbody
+              - @registrations.each do |registration|
+                tr
+                  td= registration.user.full_name
+                  td=l registration.created_at, format: :long
+                  td
+        footer.panel-footer

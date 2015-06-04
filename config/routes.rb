@@ -16,11 +16,15 @@ SampleApp::Application.routes.draw do
 
   match '/signup',  to: 'users#new',            via: 'get'
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :registrations, only: :create
+  end
 
   namespace :admin do
     root 'events#index'
-    resources :events
+    resources :events do
+      resources :registrations, only: :index
+    end
     resources :event_templates
     resources :users, except: :show
   end
