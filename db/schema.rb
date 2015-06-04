@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603172920) do
+ActiveRecord::Schema.define(version: 20150603173507) do
 
   create_table "action_members", force: true do |t|
     t.string "id_action"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20150603172920) do
 
   add_index "events", ["event_template_id"], name: "index_events_on_event_template_id"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "prices", force: true do |t|
+    t.integer  "event_id"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.date     "valid_till"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prices", ["event_id", "valid_till"], name: "index_prices_on_event_id_and_valid_till", unique: true
+  add_index "prices", ["event_id"], name: "index_prices_on_event_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -2,6 +2,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :event_template
 
+  has_many :prices, dependent: :destroy, inverse_of: :event
+  accepts_nested_attributes_for :prices, allow_destroy: true
+
   validates :user, presence: true
   validates :event_template, presence: true
   validates :name, presence: true

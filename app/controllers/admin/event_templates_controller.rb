@@ -46,7 +46,7 @@ class Admin::EventTemplatesController < Admin::BaseController
   private
 
     def event_template_params
-      params.require(:event_template).permit(:user_id, :name, :city, :started_at, :finished_at, :prepay_price, :content)
+      params.require(:event_template).permit(:name, :content)
     end
 
     def set_event_template
