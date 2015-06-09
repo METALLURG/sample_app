@@ -8,8 +8,8 @@ section class="panel pos-rlt clearfix"
       = f.association :user, collection: User.where(admin: true), include_blank: false
       = f.association :event_template, include_blank: false
       = f.input :city
-      = f.input :started_at
-      = f.input :finished_at
+      = f.input :started_at, as: :string, input_html: { rel: 'date' }
+      = f.input :finished_at, as: :string, input_html: { rel: 'date' }
       = f.input :prepay_price
 
       .form-group
@@ -23,7 +23,7 @@ section class="panel pos-rlt clearfix"
               = ff.link_to_remove t('shared.remove'), class: 'btn btn-danger btn-sm pull-right'
             .panel-body.clearfix
               = ff.input :price
-              = ff.input :valid_till
+              = ff.input :valid_till, as: :string, input_html: { rel: 'date' }
             
       .form-group
         .col-lg-9.col-lg-offset-3
