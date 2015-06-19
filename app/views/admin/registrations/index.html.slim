@@ -3,7 +3,11 @@ section#content
     .clearfix
       h4
         i.icon-group
-        |  Участники мероприятия "#{@event.name}"
+        = link_to 'Мероприятия', admin_events_path
+        |  > 
+        = @event.name
+        |  > 
+        | Участники
     .row
       section.panel
         .table-responsive
@@ -12,11 +16,25 @@ section#content
               tr
                 th Имя
                 th Дата регистрации
+                th Дата предоплаты
+                th Оплачено, руб.
+                th Всего к оплате, руб.
+                th
                 th
             tbody
               - @registrations.each do |registration|
                 tr
                   td= registration.user.full_name
                   td=l registration.created_at, format: :long
+                  td
+                    - if registration.approved_at
+                      =l registration.approved_at, format: :long
+                    - else
+                      | N/A
+                  td= registration.total_payments_amount
+                  td= (registration.price || 'N/A')
+                  td
+                    => link_to 'Платежи', admin_registration_payments_path(registration), class: 'btn btn-sm'
+                    => link_to 'Добавить платеж', new_admin_registration_payment_path(registration), class: 'btn btn-success btn-sm'
                   td
         footer.panel-footer

@@ -1,0 +1,14 @@
+.clearfix
+  h4 #{@payment.persisted? ? t('shared.edit') : t('shared.create')} платеж
+
+section class="panel pos-rlt clearfix"
+  header.panel-heading Информация
+  .panel-body.clearfix
+    = simple_nested_form_for [:admin, @registration, @payment], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+      
+      = f.input :amount
+
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          => f.button :submit, @payment.new_record? ? t('shared.create') : t('shared.save'), class: 'btn-primary'
+          => link_to t('shared.back'), admin_registration_payments_path(@registration), class: 'btn btn-default'

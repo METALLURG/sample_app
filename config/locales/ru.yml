@@ -26,6 +26,8 @@ ru:
       price:
         price: Цена
         valid_till: Действует до
+      payment:
+        amount: Сумма
 
   shared:
     open: Открыть

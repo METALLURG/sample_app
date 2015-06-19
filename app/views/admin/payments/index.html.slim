@@ -1,0 +1,28 @@
+section#content
+  section.main.padder
+    .clearfix
+      h4
+        i.icon-group>
+        = link_to 'Мероприятия', admin_events_path
+        |  > 
+        = link_to @registration.event.name, admin_event_registrations_path(@registration.event)
+        |  > 
+        = @registration.user.full_name
+    .row
+      section.panel
+        .panel-body
+          => link_to t('shared.add'), new_admin_registration_payment_path(@registration), class: 'btn btn-primary btn-sm'
+        .table-responsive
+          table.table.table-striped.b-t.text-small
+            thead
+              tr
+                th Дата
+                th Сумма, руб.
+                th
+            tbody
+              - @payments.each do |payment|
+                tr
+                  td=l payment.created_at, format: :long
+                  td= payment.amount
+                  td
+        footer.panel-footer
