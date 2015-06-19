@@ -21,4 +21,8 @@ class Event < ActiveRecord::Base
   def set_default_values
     self.user ||= User.where(admin: true).first
   end
+
+  def current_price
+    prices.where('prices.valid_till >= ?', Date.today).order(valid_till: :asc).limit(1).first || prices.order(valid_till: :asc).last
+  end
 end

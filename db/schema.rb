@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609205016) do
+ActiveRecord::Schema.define(version: 20150619083924) do
 
   create_table "action_members", force: true do |t|
     t.string "id_action"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 20150609205016) do
   add_index "events", ["event_template_id"], name: "index_events_on_event_template_id"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
+  create_table "payments", force: true do |t|
+    t.integer  "registration_id"
+    t.decimal  "amount",          precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["registration_id"], name: "index_payments_on_registration_id"
+
   create_table "prices", force: true do |t|
     t.integer  "event_id"
     t.decimal  "price",      precision: 8, scale: 2
@@ -78,6 +87,8 @@ ActiveRecord::Schema.define(version: 20150609205016) do
     t.string   "workflow_state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "approved_at"
+    t.decimal  "price",          precision: 8, scale: 2
   end
 
   add_index "registrations", ["event_id"], name: "index_registrations_on_event_id"

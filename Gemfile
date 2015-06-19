@@ -10,6 +10,7 @@ gem 'faker', '1.1.2'                    # Фейковые пользовате�
 gem 'russian'
 gem 'cancancan'
 gem 'mail'
+gem 'workflow'
 
 # Admin panel
 gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'

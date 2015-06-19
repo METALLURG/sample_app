@@ -1,0 +1,13 @@
+ru:
+  layouts:
+    first_admin_panel:
+      application:
+        title: Панель управления
+        brand: ИСКУМ - МЦВОПИМ
+        back_to_website: Вернуться на сайт
+        copyright: © @Metallurg_IT | SYSgu.ru | Ilinskas.ru
+
+      login:
+        title: Панель управления
+        brand: ИСКУМ - МЦВОПИМ
+        copyright: © @Metallurg_IT | SYSgu.ru | Ilinskas.ru
