@@ -6,3 +6,4 @@
 //= require first_admin_panel/libs/file-input/bootstrap.file-input
 //= require first_admin_panel/libs/clear_modal
 //= require first_admin_panel/init_datepicker
+//= require tinymce-jquery

@@ -11,6 +11,7 @@ gem 'russian'
 gem 'cancancan'
 gem 'mail'
 gem 'workflow'
+gem 'tinymce-rails'
 
 # Admin panel
 gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'
