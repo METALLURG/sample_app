@@ -3,11 +3,18 @@ section#content
     .clearfix
       h4
         i.icon-group>
-        = link_to 'Мероприятия', admin_events_path
-        |  > 
+        = link_to 'Взносы участника мероприятия', admin_events_path
+        |  >>> 
         = link_to @registration.event.name, admin_event_registrations_path(@registration.event)
-        |  > 
-        = @registration.user.full_name
+        |  >>> 
+        = @registration.user.surname
+        |  
+        = @registration.user.name
+        |  
+        = @registration.user.patronymic
+        |  ( 
+        = @registration.user.mobtel
+        |   )
     .row
       section.panel
         .panel-body
@@ -18,11 +25,9 @@ section#content
               tr
                 th Дата
                 th Сумма, руб.
-                th
             tbody
               - @payments.each do |payment|
                 tr
                   td=l payment.created_at, format: :long
                   td= payment.amount
-                  td
         footer.panel-footer

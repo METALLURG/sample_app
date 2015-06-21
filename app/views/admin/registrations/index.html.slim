@@ -14,17 +14,24 @@ section#content
           table.table.table-striped.b-t.text-small
             thead
               tr
+                th Фамилия
                 th Имя
+                th Отчество
+                th Телефон
                 th Дата регистрации
                 th Дата предоплаты
                 th Оплачено, руб.
                 th Всего к оплате, руб.
+                th Долг, руб.
                 th
                 th
             tbody
               - @registrations.each do |registration|
                 tr
-                  td= registration.user.full_name
+                  td= registration.user.surname
+                  td= registration.user.name
+                  td= registration.user.patronymic
+                  td= registration.user.mobtel
                   td=l registration.created_at, format: :long
                   td
                     - if registration.approved_at
@@ -33,8 +40,9 @@ section#content
                       | N/A
                   td= registration.total_payments_amount
                   td= (registration.price || 'N/A')
+                  td= (registration.price || 'N/A') - registration.total_payments_amount
                   td
-                    => link_to 'Платежи', admin_registration_payments_path(registration), class: 'btn btn-sm'
+                    => link_to 'Список платежей', admin_registration_payments_path(registration), class: 'btn btn-sm'
                     => link_to 'Добавить платеж', new_admin_registration_payment_path(registration), class: 'btn btn-success btn-sm'
                   td
         footer.panel-footer
