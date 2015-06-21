@@ -22,7 +22,6 @@ section#content
                 th Дата предоплаты
                 th Оплачено, руб.
                 th Всего к оплате, руб.
-                th Долг, руб.
                 th
                 th
             tbody
@@ -40,7 +39,6 @@ section#content
                       | N/A
                   td= registration.total_payments_amount
                   td= (registration.price || 'N/A')
-                  td= (registration.price || 'N/A') - registration.total_payments_amount
                   td
                     => link_to 'Список платежей', admin_registration_payments_path(registration), class: 'btn btn-sm'
                     => link_to 'Добавить платеж', new_admin_registration_payment_path(registration), class: 'btn btn-success btn-sm'
