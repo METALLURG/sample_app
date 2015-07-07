@@ -23,6 +23,15 @@ gem 'bootstrap-kaminari-views'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+
+  # Гем, который добавляет специфические для Rails таски, такие как прогон миграций и компиляция ассетов
+  gem 'capistrano-rails'
+  # Гем, добавляющий возможности bundle к capistrano
+  gem 'capistrano-bundler'
+  # Добавление поддержки Rbenv (менеджера версий для Ruby)
+  gem 'capistrano-rbenv'
+  # Интеграция пумы и капистрано
+  gem 'capistrano3-puma'
 end
 
 group :test do
@@ -46,4 +55,7 @@ end
 group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
+
+  # Puma - это Ruby/Rack сервер, который будет получать запросы из Nginx и направлять их в Rails, эдакое связующее звено
+  gem 'puma'
 end
