@@ -20,9 +20,9 @@ test:
 
 production:
   adapter: postgresql
-  host: localhost
-  username: postgres
-  password: 
   encoding: unicode
-  min_messages: WARNING
-  database: sapp_production
+  database: app_dev
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
