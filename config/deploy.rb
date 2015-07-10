@@ -1,7 +1,7 @@
 # Название приложения
 set :application, 'sample_app'
 # Путь к git репозиторию
-set :repo_url, 'git@github.com:METALLURG/sample_app.git'
+set :repo_url, 'https://github.com/METALLURG/sample_app.git'
 # Ветка по-умолчанию
 set :branch, 'master'
 # Директория для деплоя

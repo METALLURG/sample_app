@@ -25,4 +25,4 @@ production:
   password: 
   encoding: unicode
   min_messages: WARNING
-  database: sample_app_production
+  database: sapp_production
