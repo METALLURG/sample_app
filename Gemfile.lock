@@ -231,7 +231,7 @@ DEPENDENCIES
   kaminari
   mail
   nested_form
-  pg (= 0.15.1)
+  pg
   puma
   rails (= 4.0.2)
   rails_12factor (= 0.0.2)
