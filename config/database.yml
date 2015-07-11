@@ -20,9 +20,7 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: sample_app_production
-  pool: 5
   username: postgres
-  password: 
-  host: localhost
+  encoding: utf8
+  pool: 8
+  database: {{ name }}_production
