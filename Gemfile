@@ -12,10 +12,7 @@ gem 'workflow'
 gem 'tinymce-rails'
 
 # Deploy
-gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano-rbenv'
-gem 'capistrano3-puma'
+gem 'puma'
 
 # Admin panel
 gem 'first_admin_panel', github: 'ImmaculatePine/first_admin_panel'
@@ -27,6 +24,11 @@ gem 'bootstrap-kaminari-views'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+  
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :test do
@@ -50,5 +52,4 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor', '0.0.2'
-  gem 'puma'
 end
