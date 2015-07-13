@@ -6,7 +6,7 @@
 # lock '3.3.3'
 
 set :application, 'sample_app'
-set :repo_url, 'https://github.com:METALLURG/sample_app.git'
+set :repo_url, 'https://github.com/METALLURG/sample_app.git'
 set :branch, 'master'
 set :deploy_to, '/home/deploy/applications/sample_app'
 
